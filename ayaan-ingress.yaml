@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ayaan-ingress
+  namespace: default
+spec:
+  rules:
+  - host: ayaan.aacom-dev-cluster-790667-cf493f47c69a8f9ee98e3c77c3874da6-0000.us-south.containers.appdomain.cloud
+    http:
+      paths:
+      - backend:
+          serviceName: dinesh
+          servicePort: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - ayaan.aacom-dev-cluster-790667-cf493f47c69a8f9ee98e3c77c3874da6-0000.us-south.containers.appdomain.cloud
+    secretName: aacom-dev-cluster-790667-cf493f47c69a8f9ee98e3c77c3874da6-0000
